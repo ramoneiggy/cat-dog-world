@@ -1,5 +1,6 @@
 package com.isolaja.catpeopleworld.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Formula;
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-@Entity
+@Entity(name = "users")
 @Data
 @EqualsAndHashCode(exclude = {"cats", "dogs"})
 public class User {
@@ -18,25 +19,23 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String userName;
-
+    private String username;
     private String firstName;
-
     private String lastName;
+
+    @JsonIgnore
+    private String email;
+
+    private LocalDate dateOfBirth;
+    private LocalDateTime registrationDate;
+    private String country;
+    private String city;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    private String password;
-
-    private String email;
-
-    private LocalDate dateOfBirth;
-
     @Formula("datediff(curdate(), date_of_birth)/365")
     private int age;
-
-    private LocalDateTime registrationDate;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(name = "cat_owner",

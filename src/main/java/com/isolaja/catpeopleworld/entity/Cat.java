@@ -5,10 +5,11 @@ import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "cats")
 @Data
 public class Cat {
 
@@ -25,6 +26,11 @@ public class Cat {
 
     @Formula("datediff(curdate(), date_of_birth)/365")
     private int age;
+
+    private LocalDateTime registrationDate;
+    private String country;
+    private String city;
+    private String breed;
 
     @ManyToMany(mappedBy = "cats")
     private Set<User> owners = new HashSet<>();
