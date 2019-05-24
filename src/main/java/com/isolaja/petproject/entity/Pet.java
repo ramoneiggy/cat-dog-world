@@ -23,7 +23,7 @@ public class Pet {
     private String name;
 
     @Enumerated(EnumType.STRING)
-    private Animal Animal;
+    private Animal animal;
 
     private String breed;
 
@@ -33,6 +33,8 @@ public class Pet {
     private LocalDate dateOfBirth;
 
     private LocalDateTime registrationDate;
+
+    private String description;
 
     @Formula("datediff(curdate(), date_of_birth)/365")
     private int age;
