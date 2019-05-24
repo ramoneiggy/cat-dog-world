@@ -1,4 +1,4 @@
-package com.isolaja.catpeopleworld.storage;
+package com.isolaja.petproject.storage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;

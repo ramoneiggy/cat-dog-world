@@ -1,7 +1,7 @@
-package com.isolaja.catpeopleworld;
+package com.isolaja.petproject;
 
-import com.isolaja.catpeopleworld.storage.StorageProperties;
-import com.isolaja.catpeopleworld.storage.StorageService;
+import com.isolaja.petproject.storage.StorageProperties;
+import com.isolaja.petproject.storage.StorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
-public class CatpeopleworldApplication {
+public class PetProjectApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CatpeopleworldApplication.class, args);
+        SpringApplication.run(PetProjectApplication.class, args);
     }
 
     @Bean

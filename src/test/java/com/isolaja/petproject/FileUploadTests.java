@@ -1,7 +1,7 @@
-package com.isolaja.catpeopleworld;
+package com.isolaja.petproject;
 
-import com.isolaja.catpeopleworld.storage.StorageFileNotFoundException;
-import com.isolaja.catpeopleworld.storage.StorageService;
+import com.isolaja.petproject.storage.StorageFileNotFoundException;
+import com.isolaja.petproject.storage.StorageService;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;

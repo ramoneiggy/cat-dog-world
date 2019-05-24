@@ -1,4 +1,4 @@
-package com.isolaja.catpeopleworld.storage;
+package com.isolaja.petproject.storage;
 
 public class StorageFileNotFoundException extends StorageException {
 

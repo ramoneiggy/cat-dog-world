@@ -1,4 +1,4 @@
-package com.isolaja.catpeopleworld.entity;
+package com.isolaja.petproject.entity;
 
 
 public enum Gender {

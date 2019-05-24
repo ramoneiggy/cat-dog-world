@@ -1,7 +1,7 @@
-package com.isolaja.catpeopleworld.controller;
+package com.isolaja.petproject.controller;
 
-import com.isolaja.catpeopleworld.storage.StorageFileNotFoundException;
-import com.isolaja.catpeopleworld.storage.StorageService;
+import com.isolaja.petproject.storage.StorageFileNotFoundException;
+import com.isolaja.petproject.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;

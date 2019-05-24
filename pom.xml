@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.isolaja</groupId>
-    <artifactId>catpeopleworld</artifactId>
+    <artifactId>petproject</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>catpeopleworld</name>
-    <description>Cat database</description>
+    <name>PetProject</name>
+    <description>Pet Database</description>
 
     <properties>
         <java.version>1.8</java.version>

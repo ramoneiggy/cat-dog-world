@@ -1,4 +1,4 @@
-package com.isolaja.catpeopleworld.storage;
+package com.isolaja.petproject.storage;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
