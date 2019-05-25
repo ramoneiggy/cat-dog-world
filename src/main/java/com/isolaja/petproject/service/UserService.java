@@ -1,9 +1,13 @@
 package com.isolaja.petproject.service;
 
-import java.util.Map;
+import com.isolaja.petproject.entity.User;
+
+import java.util.List;
 
 public interface UserService {
 
-    Map<Integer, String> getAllUsers();
+    List<User> getAllUsers();
+
+    List<User> getUsersWithoutPets();
 
 }

@@ -2,11 +2,12 @@ package com.isolaja.petproject.service;
 
 import com.isolaja.petproject.dao.UserRepository;
 import com.isolaja.petproject.entity.User;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,17 +18,19 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    @Cacheable("all-users")
     @Override
     @Transactional
-    public Map<Integer, String> getAllUsers() {
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
 
-        Map<Integer, String> userNames = new HashMap<>();
-
-        for (User user : userRepository.findAll()) {
-            userNames.put(user.getId(), user.getUsername());
-        }
-
-        return userNames;
+    @Override
+    public List<User> getUsersWithoutPets() {
+        return getAllUsers()
+                .stream()
+                .filter(user -> user.getPets().isEmpty())
+                .collect(Collectors.toList());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.isolaja.petproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.isolaja.petproject.entity.images.UserImage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -42,6 +43,7 @@ public class User {
     private int age;
 
     // pet ownership handling
+    @JsonIgnoreProperties("owners")
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(name = "pet_owner",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),

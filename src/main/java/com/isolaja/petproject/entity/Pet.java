@@ -1,5 +1,6 @@
 package com.isolaja.petproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.isolaja.petproject.entity.images.PetImage;
 import lombok.Data;
 import org.hibernate.annotations.Formula;
@@ -39,7 +40,10 @@ public class Pet {
     @Formula("datediff(curdate(), date_of_birth)/365")
     private int age;
 
+    //TODO add addedByUserMethod
+
     // database mapping
+    @JsonIgnoreProperties("pets")
     @ManyToMany(mappedBy = "pets")
     private Set<User> owners = new HashSet<>();
 
