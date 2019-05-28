@@ -37,10 +37,10 @@ public class Pet {
 
     private String description;
 
+    private int addedByUser;
+
     @Formula("datediff(curdate(), date_of_birth)/365")
     private int age;
-
-    //TODO add addedByUserMethod
 
     // database mapping
     @JsonIgnoreProperties("pets")
@@ -51,5 +51,10 @@ public class Pet {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id")
     private List<PetImage> petImages = new ArrayList<>();
+
+    // added by user handling
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "id", referencedColumnName = "added_by_user")
+    private User addedBy;
 
 }
