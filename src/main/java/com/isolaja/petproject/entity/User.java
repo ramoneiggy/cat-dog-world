@@ -1,5 +1,6 @@
 package com.isolaja.petproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.isolaja.petproject.entity.images.UserImage;
 import lombok.Data;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -27,6 +29,11 @@ public class User {
     private String firstName;
 
     private String lastName;
+
+    @JsonIgnore
+    private String password;
+
+    private String email;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -54,5 +61,12 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id")
     private List<UserImage> userImages = new ArrayList<>();
+
+    // role handling
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Collection<Role> roles;
 
 }

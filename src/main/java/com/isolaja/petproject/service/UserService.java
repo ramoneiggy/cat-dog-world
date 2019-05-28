@@ -1,13 +1,10 @@
 package com.isolaja.petproject.service;
 
 import com.isolaja.petproject.entity.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-import java.util.List;
+public interface UserService extends UserDetailsService {
 
-public interface UserService {
-
-    List<User> getAllUsers();
-
-    List<User> getUsersWithoutPets();
+    User findByUsername(String username);
 
 }
