@@ -49,14 +49,6 @@ public class User {
     @Formula("datediff(curdate(), date_of_birth)/365")
     private int age;
 
-    // pet ownership handling
-    @JsonIgnoreProperties("owners")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinTable(name = "pet_owner",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "pet_id", referencedColumnName = "id"))
-    private Set<Pet> pets;
-
     // image handling
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id")
@@ -68,5 +60,13 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
+
+    // pet ownership handling
+    @JsonIgnoreProperties("owners")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(name = "pet_owner",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "pet_id", referencedColumnName = "id"))
+    private Set<Pet> pets;
 
 }

@@ -42,19 +42,14 @@ public class Pet {
     @Formula("datediff(curdate(), date_of_birth)/365")
     private int age;
 
-    // database mapping
-    @JsonIgnoreProperties("pets")
-    @ManyToMany(mappedBy = "pets")
-    private Set<User> owners = new HashSet<>();
-
     // image handling
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id")
     private List<PetImage> petImages = new ArrayList<>();
 
-    // added by user handling
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "id", referencedColumnName = "added_by_user")
-    private User addedBy;
+    // database mapping
+    @JsonIgnoreProperties("pets")
+    @ManyToMany(mappedBy = "pets")
+    private Set<User> owners = new HashSet<>();
 
 }
