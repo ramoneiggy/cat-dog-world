@@ -1,9 +1,15 @@
-package com.isolaja.petproject.entity;
+package com.isolaja.petproject.model;
 
+import com.isolaja.petproject.model.enums.Gender;
 import lombok.Data;
 import org.hibernate.annotations.Formula;
 
-import javax.persistence.*;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

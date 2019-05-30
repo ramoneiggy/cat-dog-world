@@ -1,6 +1,6 @@
 package com.isolaja.petproject.service;
 
-import com.isolaja.petproject.entity.User;
+import com.isolaja.petproject.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService extends UserDetailsService {

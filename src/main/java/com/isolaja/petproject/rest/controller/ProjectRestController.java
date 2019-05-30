@@ -1,9 +1,10 @@
-package com.isolaja.petproject.controller;
+package com.isolaja.petproject.rest.controller;
 
 import com.isolaja.petproject.dao.PetRepository;
 import com.isolaja.petproject.dao.UserRepository;
-import com.isolaja.petproject.entity.Pet;
-import com.isolaja.petproject.entity.User;
+import com.isolaja.petproject.model.Pet;
+import com.isolaja.petproject.model.User;
+import com.isolaja.petproject.service.PetService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +14,17 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/george") //TODO change name
+@RequestMapping("/project")
 public class ProjectRestController {
 
     private UserRepository userRepository;
     private PetRepository petRepository;
+    private PetService petService;
 
-    public ProjectRestController(UserRepository userRepository, PetRepository petRepository) {
+    public ProjectRestController(UserRepository userRepository, PetRepository petRepository, PetService petService) {
         this.userRepository = userRepository;
         this.petRepository = petRepository;
+        this.petService = petService;
     }
 
     @GetMapping("/users")
@@ -39,4 +42,13 @@ public class ProjectRestController {
         return petRepository.findById(petId);
     }
 
+    @GetMapping("/cats")
+    public List<Pet> getAllCats() {
+        return petService.getAllCats();
+    }
+
+    @GetMapping("/cats-without-owners")
+    public List<Pet> getAllCatsWithoutOwners() {
+        return petService.getAllCatsWithoutOwners();
+    }
 }

@@ -1,6 +1,6 @@
 package com.isolaja.petproject.service;
 
-import com.isolaja.petproject.entity.Pet;
+import com.isolaja.petproject.model.Pet;
 
 import java.util.List;
 

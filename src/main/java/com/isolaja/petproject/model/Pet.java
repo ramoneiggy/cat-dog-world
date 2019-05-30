@@ -1,11 +1,17 @@
-package com.isolaja.petproject.entity;
+package com.isolaja.petproject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.isolaja.petproject.entity.images.PetImage;
+import com.isolaja.petproject.model.enums.Animal;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

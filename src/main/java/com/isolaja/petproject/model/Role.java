@@ -1,4 +1,4 @@
-package com.isolaja.petproject.entity;
+package com.isolaja.petproject.model;
 
 import lombok.Data;
 
