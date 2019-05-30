@@ -1,8 +1,8 @@
-package com.isolaja.petproject.service;
+package com.isolaja.petproject.service.users;
 
-import com.isolaja.petproject.dao.UserRepository;
-import com.isolaja.petproject.model.Role;
-import com.isolaja.petproject.model.User;
+import com.isolaja.petproject.model.entity.Role;
+import com.isolaja.petproject.model.entity.User;
+import com.isolaja.petproject.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

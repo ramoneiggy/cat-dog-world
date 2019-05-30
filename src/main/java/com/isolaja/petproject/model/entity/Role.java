@@ -1,4 +1,4 @@
-package com.isolaja.petproject.model;
+package com.isolaja.petproject.model.entity;
 
 import lombok.Data;
 
@@ -7,13 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
 @Data
+@Entity
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String name;
 

@@ -1,10 +1,10 @@
 package com.isolaja.petproject.rest.controller;
 
-import com.isolaja.petproject.dao.PetRepository;
-import com.isolaja.petproject.dao.UserRepository;
-import com.isolaja.petproject.model.Pet;
-import com.isolaja.petproject.model.User;
-import com.isolaja.petproject.service.PetService;
+import com.isolaja.petproject.model.entity.Pet;
+import com.isolaja.petproject.model.entity.User;
+import com.isolaja.petproject.repository.PetRepository;
+import com.isolaja.petproject.repository.UserRepository;
+import com.isolaja.petproject.service.pets.PetService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

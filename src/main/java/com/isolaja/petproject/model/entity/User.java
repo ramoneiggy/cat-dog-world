@@ -1,7 +1,9 @@
-package com.isolaja.petproject.model;
+package com.isolaja.petproject.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.isolaja.petproject.model.base.BaseEntity;
+import com.isolaja.petproject.model.images.UserImage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

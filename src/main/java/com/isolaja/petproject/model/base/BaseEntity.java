@@ -1,4 +1,4 @@
-package com.isolaja.petproject.model;
+package com.isolaja.petproject.model.base;
 
 import com.isolaja.petproject.model.enums.Gender;
 import lombok.Data;
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 @Data
 @MappedSuperclass
-class BaseEntity implements Serializable {
+public class BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

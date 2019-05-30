@@ -1,6 +1,6 @@
 package com.isolaja.petproject.security;
 
-import com.isolaja.petproject.service.UserService;
+import com.isolaja.petproject.service.users.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;

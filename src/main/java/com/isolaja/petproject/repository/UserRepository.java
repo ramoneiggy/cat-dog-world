@@ -1,6 +1,6 @@
-package com.isolaja.petproject.dao;
+package com.isolaja.petproject.repository;
 
-import com.isolaja.petproject.model.User;
+import com.isolaja.petproject.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Integer> {

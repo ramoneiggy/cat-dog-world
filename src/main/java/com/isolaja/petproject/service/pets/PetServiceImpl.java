@@ -1,8 +1,8 @@
-package com.isolaja.petproject.service;
+package com.isolaja.petproject.service.pets;
 
-import com.isolaja.petproject.dao.PetRepository;
-import com.isolaja.petproject.model.Pet;
+import com.isolaja.petproject.model.entity.Pet;
 import com.isolaja.petproject.model.enums.Animal;
+import com.isolaja.petproject.repository.PetRepository;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
