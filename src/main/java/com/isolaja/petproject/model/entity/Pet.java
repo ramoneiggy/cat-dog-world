@@ -14,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -25,8 +26,10 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 public class Pet extends BaseEntity {
 
+    @NotEmpty(message = "pet.name.empty")
     private String name;
 
+    @NotEmpty(message = "animal.type.empty")
     @Enumerated(EnumType.STRING)
     private Animal animal;
 

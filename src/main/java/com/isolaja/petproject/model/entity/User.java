@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -25,19 +27,25 @@ import java.util.Set;
 @EqualsAndHashCode(exclude = {"pets"}, callSuper = true)
 public class User extends BaseEntity {
 
+    @NotEmpty(message = "username.empty")
     private String username;
 
     private String firstName;
 
     private String lastName;
 
+    @NotEmpty(message = "email.empty")
+    @Email(message = "email.validation.fail")
     private String email;
 
+    @NotEmpty(message = "country.empty")
     private String country;
 
+    @NotEmpty(message = "city.empty")
     private String city;
 
     @JsonIgnore
+    @NotEmpty(message = "password.empty")
     private String password;
 
     // image handling
