@@ -3,23 +3,19 @@ package com.isolaja.petproject.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.isolaja.petproject.entity.images.PetImage;
 import lombok.Data;
-import org.hibernate.annotations.Formula;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+
 @Data
 @Entity(name = "pets")
-public class Pet {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+@EqualsAndHashCode(callSuper = true)
+public class Pet extends BaseEntity {
 
     private String name;
 
@@ -28,19 +24,9 @@ public class Pet {
 
     private String breed;
 
-    @Enumerated(EnumType.STRING)
-    Gender gender;
-
-    private LocalDate dateOfBirth;
-
-    private LocalDateTime registrationDate;
-
     private String description;
 
     private int addedByUser;
-
-    @Formula("datediff(curdate(), date_of_birth)/365")
-    private int age;
 
     // image handling
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
