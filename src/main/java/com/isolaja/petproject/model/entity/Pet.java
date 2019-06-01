@@ -29,7 +29,6 @@ public class Pet extends BaseEntity {
     @NotEmpty(message = "pet.name.empty")
     private String name;
 
-    @NotEmpty(message = "animal.type.empty")
     @Enumerated(EnumType.STRING)
     private Animal animal;
 

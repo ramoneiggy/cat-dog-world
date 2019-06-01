@@ -1,6 +1,7 @@
 package com.isolaja.petproject.security;
 
 import com.isolaja.petproject.service.users.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -8,17 +9,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private UserService userService;
-
-    public SecurityConfiguration(UserService userService) {
-        this.userService = userService;
-    }
+    private PasswordConfiguration passwordConfiguration;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -42,15 +40,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(userService);
-        auth.setPasswordEncoder(passwordEncoder());
+        auth.setPasswordEncoder(passwordConfiguration.passwordEncoder());
         return auth;
     }
 

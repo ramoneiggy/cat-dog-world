@@ -1,6 +1,5 @@
 package com.isolaja.petproject.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.isolaja.petproject.model.base.BaseEntity;
 import com.isolaja.petproject.model.images.UserImage;
@@ -44,7 +43,7 @@ public class User extends BaseEntity {
     @NotEmpty(message = "city.empty")
     private String city;
 
-    @JsonIgnore
+    //@JsonIgnore
     @NotEmpty(message = "password.empty")
     private String password;
 

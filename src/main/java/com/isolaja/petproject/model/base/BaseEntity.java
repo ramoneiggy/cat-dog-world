@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -24,11 +23,9 @@ public class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "gender.empty")
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @NotEmpty
     @Past(message = "birth.date.fail")
     private LocalDate dateOfBirth;
 
