@@ -37,11 +37,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void save(User user) {
+    public void save(User user) throws EntityExistsException {
         if (findByUsername(user.getUsername()) != null) {
             throw new EntityExistsException("Username is already taken.");
         }
-
         user.setId(0);
         user.setRoles(Collections.singletonList(roleRepository.findRoleByName(String.valueOf(RoleNames.ROLE_USER))));
         user.setRegistrationDate(LocalDateTime.now());

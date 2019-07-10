@@ -1,7 +1,7 @@
 package com.isolaja.petproject.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.isolaja.petproject.model.base.BaseEntity;
+import com.isolaja.petproject.model.base.AbstractBaseEntity;
 import com.isolaja.petproject.model.images.UserImage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,7 +24,7 @@ import java.util.Set;
 @Data
 @Entity(name = "users")
 @EqualsAndHashCode(exclude = {"pets"}, callSuper = true)
-public class User extends BaseEntity {
+public class User extends AbstractBaseEntity {
 
     @NotEmpty(message = "username.empty")
     private String username;

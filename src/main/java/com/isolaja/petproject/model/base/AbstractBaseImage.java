@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @Data
 @MappedSuperclass
-public class BaseImage implements Serializable {
+public abstract class AbstractBaseImage implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
